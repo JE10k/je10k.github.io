@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing app</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="drawing-area">
+            <div class="dialog">
+                <label class="dialog_label">Do you want to clear the page?</label>
+                <div class="dialog__btn-yes">Yes</div>
+                <div class="dialog__btn-no">No</div>
+            </div>
+            <div class="cursor1"></div>
+
+            <div class="chat-box">Chatbox</div>
+            <canvas id="canvas" width="1123px" height="794px">Please update your browser.
+
+            </canvas>
+            <p>
+            <div class="game__timer-display"></div>
+            </p>
+
+            <!-- Toolbar section-->
+            <div class="toolbar">
+                <input type="range" class="toolbar__size-slider" aria-label="pen size slider" name="pen-size" min="1"
+                    max="20" step="1">
+                <div class="toolbar__pen-tool" aria-label="pen tool"><img src="icon-pencil.png"></div>
+                <div class="toolbar__eraser-tool" aria-label="eraser tool"><img src="icon-eraser.png"></div>
+                <div class="toolbar__colours">
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                </div>
+                
+                <div class="toolbar___page-funcs">
+                    <div class="toolbar__page-funcs__new">new</div>
+                    <div class="toolbar__page-funcs__save">Save</div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script src="draw.js"></script>
+    <script src="game.js"></script>
+    <script src="net.js"></script>
+</body>
+
+</html>
