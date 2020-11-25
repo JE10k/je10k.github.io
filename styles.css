@@ -1,3 +1,4 @@
+
 * {
     -webkit-user-select: none;
     -webkit-user-drag: none;
@@ -17,16 +18,62 @@ body {
     width: 1123px;
     height: 794px;
     border-radius: 10px;
+    border: 4px solid grey;
+    //position: relative;
+    
 }
 
 #canvas {
    background: #ffffff;
    border-radius: 10px;
    cursor: crosshair;
-   z-index: 0;
 }
 
-/* Toolbar area */
+/* Tool container area */
+
+.tool-container {
+    width: 180px;
+    //border: 1px solid black;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    top: 720px;
+    left: 68%;
+    position: absolute;
+    justify-items: center;
+    
+}
+
+.tool-container__colour-btn {
+   
+    top: 300;
+    left: 50;
+    margin: 10px;
+    cursor: pointer;
+    display: grid;
+    grid-column-start: 1;
+    //border: 1px solid black;
+}         
+
+.tool-container__colour-btn:hover {
+    animation: btnshake 1s;
+    
+}
+
+.tool-container__tool-btn:hover {
+    animation: btnshake 1s;
+    
+}
+
+
+.tool-container__tool-btn {
+    //border: 1px solid black;
+    cursor: pointer;
+    display: grid;
+    grid-column-start: 2;
+}
+
+
 
 .toolbar {
     width: 100%;
@@ -40,6 +87,8 @@ body {
     grid-template-columns: 1fr 1fr 1fr 4fr 1fr;
     justify-self: right;
     margin: 0 auto;
+
+    display: none;
 }
 
 .toolbar__pen-tool {
@@ -70,13 +119,12 @@ body {
 .toolbar__colours {
     width: 150px;
     height: 65px;
-    //border: 1px solid black;
     border-radius: 5px;
     margin: 0 auto;
     padding-top: 9px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(29px, 1fr));
-    grid-template-rows repeat(auto-fill, minmax(29px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(29px, 1fr));
     grid-column-start: 4;
     
 }
@@ -221,3 +269,21 @@ body {
 
 }
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .app {
+        width: 100%;
+        height: 100%;
+        
+    }
+   }
+
+/* UI Animations */
+
+@keyframes btnshake {
+    0% { transform: translate3d(0, 2px, 0); }
+
+    50%, 70% {  transform: translate3d(0, -1px, 0);} 
+
+    100% { transform: translate3d(0, 0, 0); }
+  }

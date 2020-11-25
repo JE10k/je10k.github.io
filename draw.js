@@ -5,12 +5,10 @@ const body = document.querySelector("body");
 const cursorCanvas = document.createElement("canvas");
 const cursorCtx = cursorCanvas.getContext("2d");
 
+let colourBtn = document.querySelector(".tool-container__colour-btn");
 let penTool = document.querySelector(".toolbar__pen-tool");
 let eraserTool = document.querySelector(".toolbar__eraser-tool");
 let penSizeSlider = document.querySelector(".toolbar__size-slider");
-
-cursorCanvas.width = "64px";
-cursorCanvas.height = "64px";
 
 let dialog = document.querySelector(".dialog");
 let dialogBtnYes = document.querySelector(".dialog__btn-yes");
@@ -22,6 +20,12 @@ let pageSaveButton = document.querySelector(".toolbar__page-funcs__save");
 let showCursor = true;
 
 dialog.style.display = "none";
+
+
+colourBtn.addEventListener("click", (e) => {
+    console.log("Colour button clicked");
+})
+
 
 // Paint object
 let draw = {
@@ -55,6 +59,16 @@ canvas.addEventListener("mousedown", (e) => {
     console.log("is painting");
 });
 
+// As above
+canvas.addEventListener("pointerdown", (e) => {
+    ctx.moveTo(e.offsetX, e.offsetY);
+    ctx.beginPath();
+    draw.isPainting = true;
+    showCursor = false;
+    console.log("is painting");
+});
+
+
 // Set isPainting to false when the user releases the mouse button
 canvas.addEventListener("mouseup", (e) => {
     draw.isPainting = false;
@@ -63,8 +77,21 @@ canvas.addEventListener("mouseup", (e) => {
     console.log("Isn't painting");
 });
 
+// As above
+canvas.addEventListener("pointerup", (e) => {
+    draw.isPainting = false;
+    showCursor = true;
+    ctx.closePath();
+    console.log("Isn't painting");
+});
+
 // Update cursor coords to current mouse position
 canvas.addEventListener("mousemove", function (e) {
+    [draw.cursorX, draw.cursorY] = [e.pageX - this.offsetLeft, e.pageY - this.offsetTop];
+    drawPixels();
+});
+
+canvas.addEventListener("pointermove", function (e) {
     [draw.cursorX, draw.cursorY] = [e.pageX - this.offsetLeft, e.pageY - this.offsetTop];
     drawPixels();
 });
