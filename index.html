@@ -4,13 +4,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JE10k index page</title>
+    <title>Drawing app</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Placeholder</h1>
-    More coming soon...
-    <p><a href="draw.html">Draw (WIP)</a></p>
+    <div class="app">
+
+        <!-- Drawing area -->
+
+        <div class="drawing-area">
+            
+            <!-- Tool UI container -->
+
+               <div class="tool-container">
+                
+                <div class="tool-container__colour-btn">
+                    <svg id="Component_2_7" data-name="Component 2 – 7" xmlns="http://www.w3.org/2000/svg" width="64"
+                        height="64" viewBox="0 0 64 64">
+                        <g id="Ellipse_6" data-name="Ellipse 6" fill="#0080ff" stroke="#707070" stroke-width="3">
+                            <circle cx="32" cy="32" r="32" stroke="none" />
+                            <circle cx="32" cy="32" r="30.5" fill="none" />
+                        </g>
+                        <path id="Path_1" data-name="Path 1"
+                            d="M23,0C35.7,0,46,10.564,46,23.595c0,6.763-10.823-6.634-23-6.9-10.789-.232-23,13.165-23,6.9C0,10.564,10.3,0,23,0Z"
+                            transform="translate(9 8.916)" fill="#fff" opacity="0.2" />
+                    </svg>
+                </div>
+
+                <div class="tool-container__tool-btn">
+                    <svg id="Component_3_1" data-name="Component 3 – 1" xmlns="http://www.w3.org/2000/svg" width="73"
+                        height="73" viewBox="0 0 73 73">
+                        <g id="Ellipse_6" data-name="Ellipse 6" fill="#e7e7e7" stroke="#707070" stroke-width="3">
+                            <circle cx="36.5" cy="36.5" r="36.5" stroke="none" />
+                            <circle cx="36.5" cy="36.5" r="35" fill="none" />
+                        </g>
+                        <g id="Path_2" data-name="Path 2" transform="translate(25 28)" fill="#e4d122">
+                            <path
+                                d="M 15.625 42.5 L 5.498291969299316 42.5 L 0.5 41.21251678466797 L 0.5 0.5 L 23.5 0.5 L 23.5 39.80925369262695 C 23.28010749816895 40.03971099853516 22.71893501281738 40.56888580322266 21.76612091064453 41.09259033203125 C 20.59796905517578 41.73463821411133 18.58431053161621 42.5 15.625 42.5 Z"
+                                stroke="none" />
+                            <path
+                                d="M 1 1 L 1 40.82498168945313 L 5.561672210693359 42 L 15.625 42 C 18.44545936584473 42 20.36159896850586 41.28395080566406 21.47237968444824 40.68325042724609 C 22.23849678039551 40.26894760131836 22.73813629150391 39.85080718994141 23 39.60171890258789 L 23 1 L 1 1 M 0 0 L 24 0 L 24 40 C 24 40 21.625 43 15.625 43 C 12.67901992797852 43 5.43494987487793 43 5.43494987487793 43 L 0 41.60004043579102 L 0 0 Z"
+                                stroke="none" fill="#707070" />
+                        </g>
+                        <g id="Polygon_1" data-name="Polygon 1" transform="translate(25 8)" fill="#fff">
+                            <path
+                                d="M 23.13841247558594 20.5 L 0.8615895509719849 20.5 L 12.00000095367432 1.007779955863953 L 23.13841247558594 20.5 Z"
+                                stroke="none" />
+                            <path
+                                d="M 12.00000095367432 2.015560150146484 L 1.723178863525391 20 L 22.27682304382324 20 L 12.00000095367432 2.015560150146484 M 12.00000095367432 0 L 24 21 L 1.9073486328125e-06 21 L 12.00000095367432 0 Z"
+                                stroke="none" fill="#707070" />
+                        </g>
+                        <g id="Polygon_2" data-name="Polygon 2" transform="translate(31 8)" fill="#504d4d">
+                            <path
+                                d="M 11.15772438049316 10.5 L 0.8422754406929016 10.5 L 6 1.044171690940857 L 11.15772438049316 10.5 Z"
+                                stroke="none" />
+                            <path
+                                d="M 6 2.088333129882813 L 1.684545516967773 10 L 10.31545448303223 10 L 6 2.088333129882813 M 6 0 L 12 11 L 0 11 L 6 0 Z"
+                                stroke="none" fill="#707070" />
+                        </g>
+                    </svg>
+
+                </div>
+            </div>
+            <canvas id="canvas" width="1123px" height="794px">Canvas cannot be displayed</canvas>
+        </div>
+            <div class="dialog">
+                <label class="dialog_label">Do you want to clear the page?</label>
+                <div class="dialog__btn-yes">Yes</div>
+                <div class="dialog__btn-no">No</div>
+            </div>
+
+           
+
+         
+
+
+            <!-- Toolbar section-->
+
+            <div class="toolbar">
+                <input type="range" class="toolbar__size-slider" aria-label="pen size slider" name="pen-size" min="1"
+                    max="20" step="1">
+                <div class="toolbar__pen-tool" aria-label="pen tool"><img src="icon-pencil.png"></div>
+                <div class="toolbar__eraser-tool" aria-label="eraser tool"><img src="icon-eraser.png"></div>
+                <div class="toolbar__colours">
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                    <div class="toolbar__colours__colour"></div>
+                </div>
+
+                <div class="toolbar___page-funcs">
+                    <div class="toolbar__page-funcs__new">new</div>
+                    <div class="toolbar__page-funcs__save">Save</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="draw.js"></script>
+    <script src="game.js"></script>
+    <script src="net.js"></script>
 </body>
 
 </html>
